@@ -23,14 +23,10 @@ import sort.Sort;
 		createArray();
         track = new RaceEnvironment();
 	}
-
-	public String getSize(){
-		return "The size of the array is " + ARRAYSIZE;
-	}
 	
 	private void createArray(){
         // create array of integers with values between 1 and 100
-		for (int i = 0; i < ARRAYSIZE - 1;i++) ARRAY[i] = (int) (Math.random() * 100) + 1;
+        for (int i : ARRAY){ i = (int) (Math.random() * 100) + 1; }
 	}
 
     /**
