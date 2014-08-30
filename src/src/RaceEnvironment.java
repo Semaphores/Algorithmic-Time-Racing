@@ -16,6 +16,8 @@ public class RaceEnvironment {
         competitors = new LinkedList<Racer>();
     }
 
+    public LinkedList<Racer> getCompetitors(){ return competitors; }
+
     /**
      * add racer to racing environment
      * @param racer participating in race
@@ -36,6 +38,11 @@ public class RaceEnvironment {
         startTime = System.nanoTime();
         for (Racer competitor : competitors) {
             competitor.start(startTime);
+        }
+        try {
+            Thread.sleep(500 * competitors.size()); // takes a few seconds for all racers to finish
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

@@ -9,17 +9,15 @@ public class Racer {
     private long runningTime;
     private static int i = 0;
     Racer(Algorithmic algo){
-        signup(algo, "Racer-"+i++);
+        signUp(algo, "Racer-" + i++);
     }
-
-    private String currentRacer() { return name; }
 
     /**
      *
      * @param algo
      * @param name is assigned by default
      */
-    private void signup(Algorithmic algo, String name){
+    private void signUp(Algorithmic algo, String name){
         this.algo = algo;
         this.name = name;
     }
@@ -44,8 +42,8 @@ public class Racer {
     private Thread calculate(long startTime){
         return new Thread(() -> {
             algo.algorithim();
-            long elapsedTime = (long) ((System.nanoTime() - startTime));
-            long runTime = elapsedTime/1000;
+            long elapsedTime = System.nanoTime() - startTime;
+            long runTime = elapsedTime/1000; //converts nano time to micro
             runningTime = runTime;
         });
     }
