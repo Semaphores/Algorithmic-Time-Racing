@@ -33,19 +33,18 @@ import sort.Sort;
      * Used for demonstration purposes
      */
     private void build(){
-        track.add(new Racer(() -> { Sort.bubbleSort(ARRAY);
-            System.out.println("BubbleSort Done");}));
-        track.add(new Racer(() -> { Sort.insertionSort(ARRAY);
-            System.out.println("Insertion Sort Done");}));
-        track.add(new Racer(() -> { Sort.selectionSort(ARRAY);
-            System.out.println("Selection sort Done");}));
-        track.add(new Racer(() -> { Sort.quickSort(ARRAY, 0, ARRAYSIZE - 1);
-            System.out.println("Quick sort Done");}));
+        track.add(new Racer(() -> { Sort.bubbleSort(ARRAY); }));
+        track.add(new Racer(() -> { Sort.insertionSort(ARRAY); }));
+        track.add(new Racer(() -> { Sort.selectionSort(ARRAY); }));
+        track.add(new Racer(() -> { Sort.quickSort(ARRAY, 0, ARRAYSIZE - 1); }));
     }
 
 	public void printResults(){
 		build();
         track.go();
+        for (Racer r : track.getCompetitors()){
+            System.out.println(r.getName() + " " + r.getRunningTime());
+        }
 	}
 
     public static void main(String[] args){
